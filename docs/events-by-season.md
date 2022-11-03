@@ -8,7 +8,7 @@
   - TOURNAMENT_ID: The tournament id (e.g. 325 for World Cup)
   - MARKET_ID: The market id (e.g. 1 for 1x2)
   - LIMIT: The number of events to return (e.g. 10)
-  - IS_LIVE: If the events should be live or not (e.g. 0 for pre-match)
+  - IS_LIVE: If the events should be live or not (e.g. 0 for pre-match, 1 for live)
   
 - Return Types:
 
@@ -41,7 +41,23 @@ type Event = {
     specifier_value: string;
 };
 
+type LiveScore = {
+    away_gamescore: number | null; // Tennis game score
+    away_score: number // Score of away team
+    current_server: null | string; // Tennis current server
+    event_id: number; // id of the event
+    home_gamescore: number | null; // Tennis home game score
+    home_score: number; // Score of home team
+    match_status_code: number; // status of the match, first-half, second-half, penalties, etc
+    match_time: string; // Current time of the match
+    period: number; // Current period of the match
+    remaining_time_in_period: null | string; // remaining time of match in Basketball
+    stopped: number; // Is Clock stopped (Basketball)
+    tiebreak: string | null; // Tennis Tiebreak
+}
+
 type ReturnType = {
     odds: Event[];
+    scores?: LiveScore[]; // present only if is_live is 1
 }
 ```

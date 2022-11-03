@@ -47,7 +47,7 @@ type LiveScore = {
     period: number; // Current period of the match
     remaining_time_in_period: null | string; // remaining time of match in Basketball
     stopped: number; // Is Clock stopped (Basketball)
-tiebreak: string | null; // Tennis Tiebreak
+    tiebreak: string | null; // Tennis Tiebreak
 }
 
 type LiveCount = {
