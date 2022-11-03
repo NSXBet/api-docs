@@ -1,11 +1,10 @@
 ## Events by Season API
 
-- GET `https://{DOMAIN}/api/{SKIN}/odds/1/events-by-seasons?sport_id={SPORT_ID}&category_id={CATEGORY_ID}&tournament_id={TOURNAMENT_ID}&markets={MARKET_ID}&limit={LIMIT}&is_live={IS_LIVE}`
+- GET `https://{DOMAIN}/api/{SKIN}/odds/1/events-by-seasons?sport_id={SPORT_ID}&tournament_id={TOURNAMENT_ID}&markets={MARKET_ID}&limit={LIMIT}&is_live={IS_LIVE}`
 - Parameters:
   - DOMAIN: The domain of the API (e.g. betnacional.bet6.com.br)
   - SKIN: The skin that is requesting (e.g. betnacional)
   - SPORT_ID: The sport id (e.g. 1 for soccer)
-  - CATEGORY_ID: The category id (e.g. 1 for Brazil)
   - TOURNAMENT_ID: The tournament id (e.g. 325 for World Cup)
   - MARKET_ID: The market id (e.g. 1 for 1x2)
   - LIMIT: The number of events to return (e.g. 10)
