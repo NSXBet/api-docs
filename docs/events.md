@@ -1,8 +1,11 @@
 ## Odds API
 
-- GET https://betnacional.bet6.com.br/api/betnacional/odds/1/home/0/1
+- GET https://{DOMAIN}/api/{SKIN}/odds/1/home/0/1
+- Parameters:
+  - DOMAIN: The domain of the API (e.g. betnacional.bet6.com.br)
+  - SKIN: The skin that is requesting (e.g. betnacional)
+  
 - Return Types:
-
 ```typescript
 type Event = {
     id: number; // id of the event composed with the outcome id

@@ -1,7 +1,8 @@
 # api-docs
-Docs for NSX Apis
+Docs for NSX Public APIs
 
 
 ## Odds
-- [Odds API](docs/odds.md)
-- [Live Odds API](docs/live-odds.md)
+- [Events API](docs/events.md)
+- [Live Events API](docs/live-events.md)
+- [Events By Season API](docs/events-by-season.md)

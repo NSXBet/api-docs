@@ -1,7 +1,17 @@
-## Live Odds API
+## Events by Season API
 
-- GET https://prod-global-bff-events.bet6.com.br/api/sports/1/markets/1/live-events
-Return Types:
+- GET `https://{DOMAIN}/api/{SKIN}/odds/1/events-by-seasons?sport_id={SPORT_ID}&category_id={CATEGORY_ID}&tournament_id={TOURNAMENT_ID}&markets={MARKET_ID}&limit={LIMIT}&is_live={IS_LIVE}`
+- Parameters:
+  - DOMAIN: The domain of the API (e.g. betnacional.bet6.com.br)
+  - SKIN: The skin that is requesting (e.g. betnacional)
+  - SPORT_ID: The sport id (e.g. 1 for soccer)
+  - CATEGORY_ID: The category id (e.g. 1 for Brazil)
+  - TOURNAMENT_ID: The tournament id (e.g. 325 for World Cup)
+  - MARKET_ID: The market id (e.g. 1 for 1x2)
+  - LIMIT: The number of events to return (e.g. 10)
+  - IS_LIVE: If the events should be live or not (e.g. 0 for pre-match)
+  
+- Return Types:
 
 ```typescript
 type Event = {
@@ -21,6 +31,7 @@ type Event = {
     tournament_important: number; // specifies the priority of the tournament to be displayed
     booked: number; // indicate if event will have live odds or not
     created_at: Date; // event creation date in the database
+    event_status_id: number; // status of the event, 0 = pre-match, 1 = live, 3 = closed
     image_name: string | null ; // Image of the event
     market_count: number; // number or markets available for this event, coming 0 default
     market_status_id: number; // market status, 1 = active, 0 = inactive, -1 = suspended
@@ -31,29 +42,7 @@ type Event = {
     specifier_value: string;
 };
 
-type LiveScore = {
-    away_gamescore: number | null; // Tennis game score
-    away_score: number // Score of away team
-    current_server: null | string; // Tennis current server
-    event_id: number; // id of the event
-    home_gamescore: number | null; // Tennis home game score
-    home_score: number; // Score of home team
-    match_status_code: number; // status of the match, first-half, second-half, penalties, etc
-    match_time: string; // Current time of the match
-    period: number; // Current period of the match
-    remaining_time_in_period: null | string; // remaining time of match in Basketball
-    stopped: number; // Is Clock stopped (Basketball)
-tiebreak: string | null; // Tennis Tiebreak
-}
-
-type LiveCount = {
-  sport_id: number; // Id of the sport
-  count: number; // How many live events are occurring at the moment
-}
-
 type ReturnType = {
-  live_count: LiveCount[]
-  odds: Event[]; //Odds of live events
-  scores: LiveScore[]; //Scores of live events
+    odds: Event[];
 }
 ```
