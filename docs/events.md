@@ -1,9 +1,13 @@
 ## Odds API
 
-- GET https://{DOMAIN}/api/{SKIN}/odds/1/home/0/1
-- Parameters:
-  - DOMAIN: The domain of the API (e.g. betnacional.bet6.com.br)
-  - SKIN: The skin that is requesting (e.g. betnacional)
+- GET https://prod-global-external-partners-api.bet6.com.br/api/events-with-odds?sportId={SPORT_ID}&marketId={MARKET_ID}&tournamentId={TOURNAMENT_ID}&statusId={STATUS_ID}&limit={LIMIT}&skip={SKIP}
+- Parameters: 
+  - SPORT_ID: The sport id (e.g. 1 for soccer)
+  - MARKET_ID: The market id (e.g. 1 for 1x2)
+  - TOURNAMENT_ID: The tournament id
+  - STATUS_ID: The status id (e.g. 0 for pre-game, 1 for live)
+  - LIMIT: The number of events to return
+  - SKIP: The number of events to skip
   
 - Return Types:
 ```typescript
@@ -34,43 +38,5 @@ type Event = {
     specifier: string; // additional info about the market ID. e.g total=2.5
     specifier_value: string;
 };
-
-type Tourney = {
-    category_id: number; // Id of the category
-    image_name: string | null; // Image of the tourney
-    season_id: number;  // Id of the season
-    sport_id: number;  // Id of the sport
-    tournament_id: number; // Id of the tournament
-    tournament_name: string; // Name of the tournament (e.g. UEFA Champions League)
-}
-
-type LiveCount = {
-    sport_id: number; // Id of the sport
-    count: number; // How many live events are occurring at the moment
-}
-
-type LiveScore = {
-    away_gamescore: number | null; // Tennis game score
-    away_score: number // Score of away team
-    current_server: null | string; // Tennis current server
-    event_id: number; // id of the event
-    home_gamescore: number | null; // Tennis home game score
-    home_score: number; // Score of home team
-    match_status_code: number; // status of the match, first-half, second-half, penalties, etc
-    match_time: string; // Current time of the match
-    period: number; // Current period of the match
-    remaining_time_in_period: null | string; // remaining time of match in Basketball
-    stopped: number; // Is Clock stopped (Basketball)
-    tiebreak: string | null; // Tennis Tiebreak
-}
-
-type ReturnType = {
-    events_home: Event[]; //Home Events
-    important_tourneys: Tourney[]; // Important Tournaments
-    live_count: LiveCount[]; // Live Count
-    events_live: {
-        odds: Event[]; //Odds of live events
-        scores: LiveScore[]; //Scores of live events
-    }
-}
+type ReturnType =  Event[];
 ```
