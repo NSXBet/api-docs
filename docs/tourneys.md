@@ -1,3 +1,5 @@
+## Tourneys API
+
 - GET https://prod-global-external-partners-api.bet6.com.br/api/tourneys?search={SEARCH}&limit={LIMIT}&skip={SKIP}
 - Parameters:
     - SEARCH: A search string to filter the tourneys by tournament name
