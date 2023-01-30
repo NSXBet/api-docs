@@ -1,9 +1,9 @@
 ## Odds API
 
-- GET https://prod-global-external-partners-api.bet6.com.br/api/events-with-odds?sportId={SPORT_ID}&marketId={MARKET_ID}&tournamentId={TOURNAMENT_ID}&statusId={STATUS_ID}&limit={LIMIT}&skip={SKIP}
+- GET https://prod-global-external-partners-api.bet6.com.br/api/events-with-odds?sportId={SPORT_ID}&marketIds={MARKET_IDS}&tournamentId={TOURNAMENT_ID}&statusId={STATUS_ID}&limit={LIMIT}&skip={SKIP}
 - Parameters: 
   - SPORT_ID: The sport id (e.g. 1 for soccer)
-  - MARKET_ID: The market id (e.g. 1 for 1x2)
+  - MARKET_IDS: The market ids (e.g. 1 for 1x2), can accept multiple markets splitted by comma (eg. marketIds=1,2)
   - TOURNAMENT_ID: The tournament id
   - STATUS_ID: The status id (e.g. 0 for pre-game, 1 for live)
   - LIMIT: The number of events to return
